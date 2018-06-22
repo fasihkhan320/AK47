@@ -1,0 +1,27 @@
+s=0    # Surplus   
+m=[3,2,2,2,1]  # No of machines produce in one month
+d=[2,2,2,2,2]  # Demand for current month
+c=5    # Cost of labour to make a single machine
+
+cost1=0
+cost2=0
+
+n=len(d)
+for k in range(0,len(m)):
+    a = s + m[k]
+    if d[k] <= a:
+        f = 0
+        s =  a-d[k]
+    else:
+        f=d[k]-a
+        s = 0
+#     cost[k][s] = c * ( d[k] + m[k] )
+#     make[k][s] = f
+    cost1 = c * ( d[k] )
+    cost2 = c * ( d[k] + m[k] )
+    make = f
+    m2= int(f) + int(m[k])
+    print("Production Cost : "+str(cost1))
+    print("Sell Cost : "+str(cost2))
+    print("Production Occurs in month "+str(k+1)+" is : "+str(m2))
+    print("Surplus of month "+str(k+1)+" is : "+str(s)+"\n\n")
